@@ -1,0 +1,37 @@
+{
+  "name": "admins-service",
+  "version": "1.0.0",
+  "description": "Service dedicated to manage admins",
+  "main": "src/index.js",
+  "private": "true",
+  "scripts": {
+    "co": "sui-mono commit",
+    "start:dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "davidgpgr94",
+  "license": "ISC",
+  "dependencies": {
+    "awilix": "6.0.0",
+    "bcrypt": "5.0.1",
+    "better-sqlite3": "7.4.6",
+    "cors": "2.8.5",
+    "dotenv": "10.0.0",
+    "express": "4.17.2",
+    "express-validator": "6.14.0",
+    "glob": "7.2.0",
+    "helmet": "5.0.1",
+    "jsonwebtoken": "8.5.1",
+    "morgan": "1.10.0",
+    "uuid": "8.3.2",
+    "uuid-validate": "0.0.3",
+    "winston": "3.3.3"
+  },
+  "devDependencies": {
+    "@s-ui/mono": "2.18.0",
+    "nodemon": "2.0.15"
+  },
+  "workspaces": [
+    "src/*"
+  ]
+}
