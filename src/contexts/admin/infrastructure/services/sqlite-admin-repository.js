@@ -89,9 +89,10 @@ class SqliteAdminRepository extends AdminRepository {
   }
 
   /**
+   * @param {Criteria} criteria
    * @returns {Promise<Number>}
    */
-  async countAll() {
+  async countAll(criteria) {
     const db = this.#sqliteDbHandler.getInstance();
 
     try {

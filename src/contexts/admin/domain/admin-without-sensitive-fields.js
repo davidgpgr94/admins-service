@@ -1,4 +1,5 @@
 const AdminId = require('../../shared/domain/admin/admin-id');
+const InvalidTypeError = require('../../shared/domain/errors/invalid-type-error');
 const AdminEmail = require('./admin-email');
 const AdminName = require('./admin-name');
 const AdminSurname = require('./admin-surname');
@@ -60,6 +61,20 @@ class AdminWithoutSensitiveFields {
 
   disable() {
     this.#isEnabled = false;
+  }
+
+  /** @param {AdminName} newName */
+  changeName(newName) {
+    if (!(newName instanceof AdminName)) throw new InvalidTypeError(newName.constructor.name, AdminName.prototype.constructor.name);
+
+    this.#name = newName;
+  }
+
+  /** @param {AdminSurname} newSurname */
+  changeSurname(newSurname) {
+    if (!(newSurname instanceof AdminSurname)) throw new InvalidTypeError(newSurname.constructor.name, AdminSurname.prototype.constructor.name);
+
+    this.#surname = newSurname;
   }
 
   equal(other) {

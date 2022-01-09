@@ -30,9 +30,10 @@ class AdminRepository {
   }
 
   /**
+   * @param {Criteria} criteria
    * @returns {Promise<Number>}
    */
-  async countAll() {
+  async countAll(criteria) {
     throw new Error('not implemented yet');
   }
 
