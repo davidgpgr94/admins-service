@@ -1,7 +1,7 @@
 const Criteria = require('../../../shared/domain/criteria/criteria');
 const Admin = require('../admin');
 const AdminEmail = require('../admin-email');
-const AdminId = require('../admin-id');
+const AdminId = require('../../../shared/domain/admin/admin-id');
 
 class AdminRepository {
 

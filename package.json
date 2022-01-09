@@ -6,7 +6,7 @@
   "private": "true",
   "scripts": {
     "co": "sui-mono commit",
-    "start:dev": "nodemon src/index.js"
+    "start:api:dev": "nodemon src/apps/rest-api/index.js"
   },
   "keywords": [],
   "author": "davidgpgr94",

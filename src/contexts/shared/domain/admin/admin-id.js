@@ -1,4 +1,4 @@
-const Uuid = require('../../shared/domain/value-objects/uuid');
+const Uuid = require('../value-objects/uuid');
 
 class AdminId extends Uuid {
   static generate() {

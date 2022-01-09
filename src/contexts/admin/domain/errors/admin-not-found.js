@@ -1,5 +1,5 @@
 const DomainError = require('../../../shared/domain/errors/domain-error');
-const AdminId = require('../admin-id');
+const AdminId = require('../../../shared/domain/admin/admin-id');
 const AdminEmail = require('../admin-email');
 
 class AdminNotFound extends DomainError {

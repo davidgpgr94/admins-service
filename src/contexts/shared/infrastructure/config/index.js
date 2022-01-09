@@ -2,6 +2,9 @@ const path = require('path');
 const env = process.env.NODE_ENV || 'dev';
 
 const dev = Object.freeze({
+  jwt: {
+    certAlgorithm: process.env.JWT_CERT_ALGORITHM || 'HS256'
+  },
   sqlite: {
     dbFile: process.env.SQLITE_DB_FILE || path.join(__dirname, '..', '..', '..', '..', '..', '.data', 'serviceDatabase.sqlite'),
     timeout: process.env.SQLITE_TIMEOUT || 5000
@@ -24,6 +27,9 @@ const dev = Object.freeze({
 });
 
 const prod = Object.freeze({
+  jwt: {
+    certAlgorithm: process.env.JWT_CERT_ALGORITHM || 'HS256'
+  },
   sqlite: {
     dbFile: process.env.SQLITE_DB_FILE || path.join(__dirname, '..', '..', '..', '..', '..', '.data', 'serviceDatabase.sqlite'),
     timeout: process.env.SQLITE_TIMEOUT || 5000

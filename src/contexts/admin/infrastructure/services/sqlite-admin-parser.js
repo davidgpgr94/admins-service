@@ -1,6 +1,6 @@
 const Admin = require('../../domain/admin');
 const AdminEmail = require('../../domain/admin-email');
-const AdminId = require('../../domain/admin-id');
+const AdminId = require('../../../shared/domain/admin/admin-id');
 const AdminName = require('../../domain/admin-name');
 const AdminPassword = require('../../domain/admin-password');
 const AdminSurname = require('../../domain/admin-surname');
