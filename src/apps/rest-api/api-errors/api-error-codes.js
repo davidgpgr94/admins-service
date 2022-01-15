@@ -1,0 +1,5 @@
+module.exports = {
+  DEFAULT_NOT_FOUND: '404.0',
+  ROUTE_NOT_FOUND: '404.1',
+  DEFAULT_INTERNAL_SERVER_ERROR: '500.0'
+}
