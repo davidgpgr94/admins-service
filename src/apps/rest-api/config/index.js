@@ -4,7 +4,7 @@ const dev = Object.freeze({
   port: process.env.API_PORT || 3000,
   routesPrefix: process.env.API_ROUTES_PREFIX || '/api',
   fullHealthCheck: true,
-  debugErrors: process.env.API_DEBUG_ERRORS || true,
+  debugErrors: process.env.API_DEBUG_ERRORS || false,
   logs: {
     requestsLogsFormat: ":method :url :status :res[content-length] - :response-time ms"
   },
@@ -17,9 +17,9 @@ const dev = Object.freeze({
 const prod = Object.freeze({
   port: process.env.API_PORT || 3000,
   routesPrefix: process.env.API_ROUTES_PREFIX || '/api',
-  fullHealthCheck: true,
+  fullHealthCheck: false,
+  debugErrors: process.env.API_DEBUG_ERRORS || true,
   logs: {
-    debugErrors: process.env.API_DEBUG_ERRORS || true,
     requestsLogsFormat: ":method :url :status :res[content-length] - :response-time ms"
   },
   security: {

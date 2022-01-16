@@ -18,10 +18,11 @@ const { createContainer } = require('./container');
   });
 
   process.on('uncaughtException', error => {
-    logger.error(`${error.name}: ${error.message}`, {stack: error.stack});
+    logger.error(error.stack);
+    process.exit(1);
   });
 
-  process.on('SIGTERM', () => {
+  process.on('SIGINT', () => {
     logger.info('Stopping api server');
     apiServer.stop()
       .catch(error => logger.error('Could not stop the server', {message: error.message, stack: error.stack}));
