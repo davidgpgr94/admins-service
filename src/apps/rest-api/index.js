@@ -28,4 +28,10 @@ const { createContainer } = require('./container');
       .catch(error => logger.error('Could not stop the server', {message: error.message, stack: error.stack}));
   });
 
+  process.on('SIGTERM', () => {
+    logger.info('Stopping api server');
+    apiServer.stop()
+      .catch(error => logger.error('Could not stop the server', {message: error.message, stack: error.stack}));
+  });
+
 })();

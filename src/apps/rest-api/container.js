@@ -2,9 +2,6 @@ const awilix = require('awilix');
 
 const WinstonLogger = require('../../contexts/shared/infrastructure/logger/winston-logger');
 
-// Api Controllers
-const HealthCheckController = require('./controllers/health-check.controller');
-
 // Use Cases
 
 async function createContainer() {
@@ -15,11 +12,21 @@ async function createContainer() {
   container.register({
     logger: awilix.asClass(WinstonLogger).singleton(),
 
-    // controllers
-    HealthCheckController: awilix.asClass(HealthCheckController),
-
     // use cases
   });
+
+  container.loadModules(
+    [
+      './controllers/**/*.controller.js'
+    ],
+    {
+      cwd: __dirname,
+      formatName: 'camelCase',
+      resolverOptions: {
+        register: awilix.asClass
+      }
+    }
+  );
 
   return container;
 }
