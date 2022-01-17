@@ -6,7 +6,8 @@
   "private": "true",
   "scripts": {
     "co": "sui-mono commit",
-    "start:api:dev": "nodemon src/apps/rest-api/index.js"
+    "start:api:dev": "nodemon src/apps/rest-api/index.js",
+    "scripts:create-table": "node src/apps/scripts/create-table.js"
   },
   "keywords": [],
   "author": "davidgpgr94",
