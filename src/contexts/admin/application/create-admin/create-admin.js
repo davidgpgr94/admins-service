@@ -50,7 +50,7 @@ class CreateAdmin {
   /**
    * @param {AdminEmail} email
    */
-  #ensureEmailIsUnique(email) {
+  async #ensureEmailIsUnique(email) {
     const adminWithSameEmail = await this.#adminRepository.findByEmail(email);
 
     if (adminWithSameEmail) {
