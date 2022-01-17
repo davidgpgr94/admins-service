@@ -162,7 +162,7 @@ class SqliteAdminRepository extends AdminRepository {
    * @throws {EmailAlreadyUsed}
    */
   #insertNewAdmin(admin) {
-    const db = this.sqliteDbHandler.getInstance();
+    const db = this.#sqliteDbHandler.getInstance();
     const statement = db.prepare('INSERT INTO admins (id, email, name, surname, password, is_enabled, is_super_admin) VALUES (:adminId, :adminEmail, :name, :surname, :password, :isEnabled, :isSuperAdmin)');
     const statementResultInfo = statement.run({
       adminId: admin.id.value,
