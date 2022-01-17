@@ -4,6 +4,8 @@ const WinstonLogger = require('../../contexts/shared/infrastructure/logger/winst
 
 // Use Cases
 const CheckCredentials = require('../../contexts/admin/application/check-credentials/check-credentials');
+const CreateAdmin = require('../../contexts/admin/application/create-admin/create-admin');
+
 const SqliteAdminRepository = require('../../contexts/admin/infrastructure/services/sqlite-admin-repository');
 const sqliteDbHandler = require('../../contexts/shared/infrastructure/persistence/sqlite-db-handler');
 const SqliteAdminParser = require('../../contexts/admin/infrastructure/services/sqlite-admin-parser');
@@ -19,6 +21,7 @@ async function createContainer() {
 
     // use cases
     checkCredentialsUseCase: awilix.asClass(CheckCredentials),
+    createAdminUseCase: awilix.asClass(CreateAdmin),
 
     // admin-services
     passwordEncryptor: awilix.asClass(BcryptPasswordEncryptor),
