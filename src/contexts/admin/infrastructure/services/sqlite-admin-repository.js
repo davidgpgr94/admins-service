@@ -75,7 +75,7 @@ class SqliteAdminRepository extends AdminRepository {
     const db = this.#sqliteDbHandler.getInstance();
 
     try {
-      const query = db.prepare('SELECT A.* FROM admins A LIMIT :limit OFFSET :offset');
+      const query = db.prepare('SELECT A.* FROM admins A ORDER BY A.email ASC LIMIT :limit OFFSET :offset');
       const sqliteAdmins = query.all({
         limit: limit.value,
         offset: offset.value
