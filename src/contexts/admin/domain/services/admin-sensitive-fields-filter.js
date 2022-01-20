@@ -7,14 +7,15 @@ class AdminSensitiveFieldsFilter {
    * @returns {AdminWithoutSensitiveFields}
    */
   filter(admin) {
-    const { id, name, surname, email, isBlocked } = admin;
+    const { id, name, surname, email, isEnabled, isSuperAdmin } = admin;
 
     return new AdminWithoutSensitiveFields({
       id: id.clone(),
       name: name.clone(),
       surname: surname.clone(),
       email: email.clone(),
-      isBlocked: isBlocked
+      isEnabled,
+      isSuperAdmin
     });
   }
 }
