@@ -11,6 +11,9 @@ const dev = Object.freeze({
   security: {
     header: process.env.API_KEY_HEADER || 'Authorization',
     apiKey: process.env.API_KEY || 'querty'
+  },
+  pagination: {
+    defaultPage: 1
   }
 })
 
@@ -25,6 +28,9 @@ const prod = Object.freeze({
   security: {
     header: process.env.API_KEY_HEADER || 'Authorization',
     apiKey: process.env.API_KEY
+  },
+  pagination: {
+    defaultPage: 1
   }
 })
 
