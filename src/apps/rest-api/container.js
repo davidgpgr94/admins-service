@@ -15,6 +15,7 @@ const SqliteAdminRepository = require('../../contexts/admin/infrastructure/servi
 const sqliteDbHandler = require('../../contexts/shared/infrastructure/persistence/sqlite-db-handler');
 const SqliteAdminParser = require('../../contexts/admin/infrastructure/services/sqlite-admin-parser');
 const BcryptPasswordEncryptor = require('../../contexts/admin/infrastructure/services/bcrypt-password-encryptor');
+const EnableAdmin = require('../../contexts/admin/application/enable-admin/enable-admin');
 
 async function createContainer() {
   const container = awilix.createContainer({
@@ -29,6 +30,7 @@ async function createContainer() {
     createAdminUseCase: awilix.asClass(CreateAdmin),
     getAdminsUseCase: awilix.asClass(GetAdmins),
     getAdminUseCase: awilix.asClass(GetAdmin),
+    enableAdminUseCase: awilix.asClass(EnableAdmin),
 
     // admin-services
     passwordEncryptor: awilix.asClass(BcryptPasswordEncryptor),

@@ -7,6 +7,7 @@ const checkCredentialsValidator = require('./auth/check-credentials.validator');
 const createAdminValidator = require('./admins/create-admin.validator');
 const getAdminsValidator = require('./admins/get-admins.validator');
 const getAdminValidator = require('./admins/get-admin.validator');
+const enableAdminValidator = require('./admins/enable-admin.validator');
 
 const validate = (req, res, next) => {
   const errors = validationResult(req);
@@ -41,6 +42,7 @@ module.exports = {
   admins: {
     createAdminValidator,
     getAdminsValidator,
-    getAdminValidator
+    getAdminValidator,
+    enableAdminValidator
   }
 }
