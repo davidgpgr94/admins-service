@@ -1,5 +1,7 @@
 const Controller = require('../controller');
 
+const AdminNotFoundByEmail = require('../../api-errors/not-found/admin-not-found-by-email');
+
 const AdminWithoutSensitiveFieldsSerializer = require('../../serializers/admin-without-sensitive-fields.serializer');
 
 const GetAdmins = require('../../../../contexts/admin/application/get-admins/get-admins');
@@ -15,7 +17,9 @@ const AdminEmail = require('../../../../contexts/admin/domain/admin-email');
 const AdminNotFound = require('../../../../contexts/admin/domain/errors/admin-not-found');
 
 class GetAdminsController extends Controller {
-  static #errorHandlers = {};
+  static #errorHandlers = {
+    AdminNotFound: (error) => new AdminNotFoundByEmail(error?.data?.adminEmail)
+  };
 
   /** @type {GetAdmins} */
   #getAdminsUseCase;
