@@ -29,12 +29,12 @@ class EditAdmin {
    * @param {EditAdminCommand} editAdminCommand
    * @throws {AdminNotFound}
    */
-  async run({ adminId, name, surname }) {
+  async run({ adminId, name, surname, isSuperAdmin }) {
     const currentAdmin = await this.#getCurrentAdmin(adminId);
 
     if (!currentAdmin) throw new AdminNotFound(adminId);
 
-    const adminToSave = this.#updateAdmin(currentAdmin, { name, surname });
+    const adminToSave = this.#updateAdmin(currentAdmin, { name, surname, isSuperAdmin });
 
     await this.#adminRepository.save(adminToSave);
 
@@ -52,14 +52,16 @@ class EditAdmin {
    * @param {Object} editableFields
    * @param {AdminName|undefined} editableFields.name
    * @param {AdminSurname|undefined} editableFields.surname
+   * @param {boolean|undefined} editableFields.isSuperAdmin
    *
    * @returns {Admin}
    */
-  #updateAdmin(admin, { name, surname }) {
+  #updateAdmin(admin, { name, surname, isSuperAdmin }) {
     const admintToUpdate = admin.clone();
 
     if (name) admintToUpdate.changeName(name);
     if (surname) admintToUpdate.changeSurname(surname);
+    if (isSuperAdmin !== undefined) admintToUpdate.changeSuperAdmin(isSuperAdmin);
 
     return admintToUpdate;
   }

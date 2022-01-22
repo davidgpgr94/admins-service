@@ -30,7 +30,7 @@ class EditAdminController extends Controller {
   }
 
   async run(req, res, next) {
-    const { name, surname } = req.body;
+    const { name, surname, isSuperAdmin } = req.body;
     const { adminId:adminIdString } = req.params;
 
     try {
@@ -39,7 +39,8 @@ class EditAdminController extends Controller {
       const editAdminCommand = new EditAdminCommand({
         adminId,
         name: name ? new AdminName(name) : undefined,
-        surname: surname ? new AdminSurname(surname) : undefined
+        surname: surname ? new AdminSurname(surname) : undefined,
+        isSuperAdmin
       });
 
       const { adminEdited } = await this.#editAdminUseCase.run(editAdminCommand);

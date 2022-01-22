@@ -29,6 +29,20 @@ const editAdminValidator = validator.checkSchema({
       options: { min: 1 },
       errorMessage: 'Surname cannot be blank'
     }
+  },
+  isSuperAdmin: {
+    in: 'body',
+    optional: {
+      options: {
+        nullable: false
+      }
+    },
+    isBoolean: {
+      bail: true,
+      options: { loose: false },
+      errorMessage: 'Invalid boolean value'
+    },
+    toBoolean: true
   }
 });
 

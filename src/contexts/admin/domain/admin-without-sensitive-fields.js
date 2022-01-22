@@ -63,6 +63,12 @@ class AdminWithoutSensitiveFields {
     this.#isEnabled = false;
   }
 
+  changeSuperAdmin(isSuperAdmin) {
+    if (typeof isSuperAdmin !== 'boolean') throw new InvalidTypeError(typeof isSuperAdmin, 'boolean');
+
+    this.#isSuperAdmin = isSuperAdmin;
+  }
+
   /** @param {AdminName} newName */
   changeName(newName) {
     if (!(newName instanceof AdminName)) throw new InvalidTypeError(newName.constructor.name, AdminName.prototype.constructor.name);
