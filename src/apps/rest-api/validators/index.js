@@ -9,6 +9,7 @@ const getAdminsValidator = require('./admins/get-admins.validator');
 const getAdminValidator = require('./admins/get-admin.validator');
 const enableAdminValidator = require('./admins/enable-admin.validator');
 const disableAdminValidator = require('./admins/disable-admin.validator');
+const editAdminValidator = require('./admins/edit-admin.validator');
 
 const validate = (req, res, next) => {
   const errors = validationResult(req);
@@ -45,6 +46,7 @@ module.exports = {
     getAdminsValidator,
     getAdminValidator,
     enableAdminValidator,
-    disableAdminValidator
+    disableAdminValidator,
+    editAdminValidator
   }
 }
