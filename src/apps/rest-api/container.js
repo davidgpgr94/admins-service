@@ -14,11 +14,13 @@ const EnableAdmin = require('../../contexts/admin/application/enable-admin/enabl
 const DisableAdmin = require('../../contexts/admin/application/disable-admin/disable-admin');
 const EditAdmin = require('../../contexts/admin/application/edit-admin/edit-admin');
 const ChangePassword = require('../../contexts/admin/application/change-password/change-password');
+const RequestRestorePassword = require('../../contexts/admin/application/request-restore-password/request-restore-password');
 
 const SqliteAdminRepository = require('../../contexts/admin/infrastructure/services/sqlite-admin-repository');
 const sqliteDbHandler = require('../../contexts/shared/infrastructure/persistence/sqlite-db-handler');
 const SqliteAdminParser = require('../../contexts/admin/infrastructure/services/sqlite-admin-parser');
 const BcryptPasswordEncryptor = require('../../contexts/admin/infrastructure/services/bcrypt-password-encryptor');
+const JwtTokenEncryptor = require('../../contexts/shared/infrastructure/token/services/jwt-token-encryptor');
 
 async function createContainer() {
   const container = awilix.createContainer({
@@ -37,10 +39,12 @@ async function createContainer() {
     disableAdminUseCase: awilix.asClass(DisableAdmin),
     editAdminUseCase: awilix.asClass(EditAdmin),
     changePasswordUseCase: awilix.asClass(ChangePassword),
+    requestRestorePasswordUseCase: awilix.asClass(RequestRestorePassword),
 
     // admin-services
     passwordEncryptor: awilix.asClass(BcryptPasswordEncryptor),
     adminSensitiveFieldsFilter: awilix.asClass(AdminSensitiveFieldsFilter),
+    tokenEncryptor: awilix.asClass(JwtTokenEncryptor),
 
     // admin-persistence
     adminRepository: awilix.asClass(SqliteAdminRepository),

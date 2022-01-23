@@ -3,6 +3,7 @@ const ValidationError = require('../api-errors/bad-request/validation-error');
 const ValidationErrorAggregation = require('../api-errors/bad-request/validation-error-aggregation');
 
 const checkCredentialsValidator = require('./auth/check-credentials.validator');
+const requestRestorePasswordValidator = require('./auth/request-restore-password.validator');
 
 const createAdminValidator = require('./admins/create-admin.validator');
 const getAdminsValidator = require('./admins/get-admins.validator');
@@ -40,7 +41,8 @@ const validateWrapper = (validationSchema) => {
 module.exports = {
   validate: validateWrapper,
   auth: {
-    checkCredentialsValidator
+    checkCredentialsValidator,
+    requestRestorePasswordValidator
   },
   admins: {
     createAdminValidator,
