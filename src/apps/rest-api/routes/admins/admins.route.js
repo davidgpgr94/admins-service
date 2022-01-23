@@ -6,7 +6,8 @@ const {
     getAdminValidator,
     enableAdminValidator,
     disableAdminValidator,
-    editAdminValidator
+    editAdminValidator,
+    changeAdminPasswordValidator
   }
 } = require('../../validators');
 
@@ -19,11 +20,13 @@ module.exports = ({ container, router }) => {
   const enableAdminController = container.resolve('enableAdminController');
   const disableAdminController = container.resolve('disableAdminController');
   const editAdminController = container.resolve('editAdminController');
+  const changeAdminPasswordController = container.resolve('changeAdminPasswordController');
 
   router.get(BASE_PATH, validate(getAdminsValidator), getAdminsController.run.bind(getAdminsController));
   router.get(`${BASE_PATH}/:adminId`, validate(getAdminValidator), getAdminController.run.bind(getAdminController));
   router.put(`${BASE_PATH}/:adminId`, validate(editAdminValidator), editAdminController.run.bind(editAdminController));
   router.put(`${BASE_PATH}/:adminId/enable`, validate(enableAdminValidator), enableAdminController.run.bind(enableAdminController));
   router.put(`${BASE_PATH}/:adminId/disable`, validate(disableAdminValidator), disableAdminController.run.bind(disableAdminController));
+  router.patch(`${BASE_PATH}/:adminId/password`, validate(changeAdminPasswordValidator), changeAdminPasswordController.run.bind(changeAdminPasswordController));
   router.post(BASE_PATH, validate(createAdminValidator), createAdminController.run.bind(createAdminController));
 }
