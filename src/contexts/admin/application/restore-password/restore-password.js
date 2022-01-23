@@ -35,7 +35,7 @@ class RestorePassword {
    * @param {RestorePasswordCommand} restorePasswordCommand
    * @throws {TokenNotValid}
    */
-  async restorePassword({ token, newPassword, confirmPassword }) {
+  async run({ token, newPassword, confirmPassword }) {
     const restorePasswordToken = this.#decodeTokenToRestorePasswordToken(token);
 
     const admin = await this.#getAdminFromToken(restorePasswordToken);
