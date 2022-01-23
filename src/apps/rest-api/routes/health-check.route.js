@@ -1,5 +1,4 @@
-module.exports = ({ container, router }) => {
-  const healthCheckController = container.resolve('healthCheckController');
+module.exports = ({ router, healthCheckController }) => {
 
   router.get('/health-check', healthCheckController.run.bind(healthCheckController));
 }
