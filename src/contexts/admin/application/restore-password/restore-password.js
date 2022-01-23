@@ -33,7 +33,7 @@ class RestorePassword {
 
   /**
    * @param {RestorePasswordCommand} restorePasswordCommand
-   * @throws {TokenNotValid}
+   * @throws {EncryptedTokenNotValid}
    */
   async run({ token, newPassword, confirmPassword }) {
     const restorePasswordToken = this.#decodeTokenToRestorePasswordToken(token);
