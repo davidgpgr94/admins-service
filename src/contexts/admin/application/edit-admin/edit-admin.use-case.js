@@ -10,7 +10,7 @@ const AdminSensitiveFieldsFilter = require('../../domain/services/admin-sensitiv
 const EditAdminCommand = require('./edit-admin-command');
 const EditAdminResponse = require('./edit-admin-response');
 
-class EditAdmin {
+class EditAdminUseCase {
 
   #adminRepository;
   #adminSensitiveFieldsFilter;
@@ -67,4 +67,4 @@ class EditAdmin {
   }
 }
 
-module.exports = EditAdmin;
+module.exports = EditAdminUseCase;

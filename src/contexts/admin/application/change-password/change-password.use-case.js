@@ -12,7 +12,7 @@ const PasswordEncryptor = require('../../domain/services/password-encryptor');
 const ChangePasswordCommand = require('./change-password-command');
 const ChangePasswordResponse = require('./change-password-response');
 
-class ChangePassword {
+class ChangePasswordUseCase {
 
   #adminRepository;
   #passwordEncryptor;
@@ -90,4 +90,4 @@ class ChangePassword {
   }
 }
 
-module.exports = ChangePassword;
+module.exports = ChangePasswordUseCase;

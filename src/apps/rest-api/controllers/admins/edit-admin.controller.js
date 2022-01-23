@@ -4,7 +4,7 @@ const AdminNotFoundById = require('../../api-errors/not-found/admin-not-found-by
 
 const AdminWithoutSensitiveFieldsSerializer = require('../../serializers/admin-without-sensitive-fields.serializer');
 
-const EditAdmin = require('../../../../contexts/admin/application/edit-admin/edit-admin');
+const EditAdminUseCase = require('../../../../contexts/admin/application/edit-admin/edit-admin.use-case');
 const EditAdminCommand = require('../../../../contexts/admin/application/edit-admin/edit-admin-command');
 
 const AdminId = require('../../../../contexts/shared/domain/admin/admin-id');
@@ -16,7 +16,7 @@ class EditAdminController extends Controller {
     AdminNotFound: (error) => new AdminNotFoundById(error?.data?.adminId)
   };
 
-  /** @type {EditAdmin} */
+  /** @type {EditAdminUseCase} */
   #editAdminUseCase;
 
   /** @type {AdminWithoutSensitiveFieldsSerializer} */

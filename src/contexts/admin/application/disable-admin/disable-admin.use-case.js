@@ -5,7 +5,7 @@ const AdminRepository = require('../../domain/services/admin-repository');
 const DisableAdminCommand = require('./disable-admin-command');
 const DisableAdminResponse = require('./disable-admin-response');
 
-class DisableAdmin {
+class DisableAdminUseCase {
 
   #adminRepository;
 
@@ -40,4 +40,4 @@ class DisableAdmin {
   }
 }
 
-module.exports = DisableAdmin;
+module.exports = DisableAdminUseCase;

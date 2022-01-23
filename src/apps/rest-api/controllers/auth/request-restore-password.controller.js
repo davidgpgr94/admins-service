@@ -1,16 +1,18 @@
 const Controller = require('../controller');
 
-const RequestRestorePassword = require('../../../../contexts/admin/application/request-restore-password/request-restore-password');
-const RequestRestorePasswordCommand = require('../../../../contexts/admin/application/request-restore-password/request-restore-password-command');
-const AdminEmail = require('../../../../contexts/admin/domain/admin-email');
 const AdminNotFoundByEmail = require('../../api-errors/not-found/admin-not-found-by-email');
+
+const RequestRestorePasswordUseCase = require('../../../../contexts/admin/application/request-restore-password/request-restore-password.use-case');
+const RequestRestorePasswordCommand = require('../../../../contexts/admin/application/request-restore-password/request-restore-password-command');
+
+const AdminEmail = require('../../../../contexts/admin/domain/admin-email');
 
 class RequestRestorePasswordController extends Controller {
   static #errorHandlers = {
     AdminNotFound: (error) => new AdminNotFoundByEmail(error?.data?.adminEmail)
   };
 
-  /** @type {RequestRestorePassword} */
+  /** @type {RequestRestorePasswordUseCase} */
   #requestRestorePasswordUseCase;
 
   constructor({ requestRestorePasswordUseCase }) {

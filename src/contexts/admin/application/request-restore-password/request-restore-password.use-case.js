@@ -8,7 +8,7 @@ const RequestRestorePasswordCommand = require('./request-restore-password-comman
 const RequestRestorePasswordResponse = require('./request-restore-password-response');
 const Token = require('../../../shared/domain/token/token');
 
-class RequestRestorePassword {
+class RequestRestorePasswordUseCase {
 
   #adminRepository;
   #tokenEncryptor;
@@ -46,4 +46,4 @@ class RequestRestorePassword {
   }
 }
 
-module.exports = RequestRestorePassword;
+module.exports = RequestRestorePasswordUseCase;

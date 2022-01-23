@@ -4,10 +4,10 @@ const AdminNotFoundByEmail = require('../../api-errors/not-found/admin-not-found
 
 const AdminWithoutSensitiveFieldsSerializer = require('../../serializers/admin-without-sensitive-fields.serializer');
 
-const GetAdmins = require('../../../../contexts/admin/application/get-admins/get-admins');
+const GetAdminsUseCase = require('../../../../contexts/admin/application/get-admins/get-admins.use-case');
 const GetAdminsQuery = require('../../../../contexts/admin/application/get-admins/get-admins-query');
 
-const GetAdmin = require('../../../../contexts/admin/application/get-admin/get-admin');
+const GetAdminUseCase = require('../../../../contexts/admin/application/get-admin/get-admin.use-case');
 const GetAdminQuery = require('../../../../contexts/admin/application/get-admin/get-admin-query');
 
 const Criteria = require('../../../../contexts/shared/domain/criteria/criteria');
@@ -21,10 +21,10 @@ class GetAdminsController extends Controller {
     AdminNotFound: (error) => new AdminNotFoundByEmail(error?.data?.adminEmail)
   };
 
-  /** @type {GetAdmins} */
+  /** @type {GetAdminsUseCase} */
   #getAdminsUseCase;
 
-  /** @type {GetAdmin} */
+  /** @type {GetAdminUseCase} */
   #getAdminUseCase;
 
   /** @type {AdminWithoutSensitiveFieldsSerializer} */

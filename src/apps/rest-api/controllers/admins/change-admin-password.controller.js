@@ -4,7 +4,7 @@ const AdminNotFoundById = require('../../api-errors/not-found/admin-not-found-by
 const IncorrectPassword = require('../../api-errors/bad-request/incorrect-password');
 const IncorrectConfirmationPassword = require('../../api-errors/bad-request/incorrect-confirmation-password');
 
-const ChangePassword = require('../../../../contexts/admin/application/change-password/change-password');
+const ChangePasswordUseCase = require('../../../../contexts/admin/application/change-password/change-password.use-case');
 const ChangePasswordCommand = require('../../../../contexts/admin/application/change-password/change-password-command');
 
 const AdminId = require('../../../../contexts/shared/domain/admin/admin-id');
@@ -17,7 +17,7 @@ class ChangeAdminPasswordController extends Controller {
     PasswordConfirmationNotMatch: (_) => new IncorrectConfirmationPassword()
   };
 
-  /** @type {ChangePassword} */
+  /** @type {ChangePasswordUseCase} */
   #changePasswordUseCase;
 
   constructor({ changePasswordUseCase }) {

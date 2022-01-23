@@ -2,7 +2,7 @@ const Controller = require('../controller');
 
 const AdminNotFoundById = require('../../api-errors/not-found/admin-not-found-by-id');
 
-const EnableAdmin = require('../../../../contexts/admin/application/enable-admin/enable-admin');
+const EnableAdminUseCase = require('../../../../contexts/admin/application/enable-admin/enable-admin.use-case');
 const EnableAdminCommand = require('../../../../contexts/admin/application/enable-admin/enable-admin-command');
 
 const AdminId = require('../../../../contexts/shared/domain/admin/admin-id');
@@ -12,7 +12,7 @@ class EnableAdminController extends Controller {
     AdminNotFound: (error) => new AdminNotFoundById(error?.data?.adminId)
   };
 
-  /** @type {EnableAdmin} */
+  /** @type {EnableAdminUseCase} */
   #enableAdminUseCase;
 
   constructor({ enableAdminUseCase }) {

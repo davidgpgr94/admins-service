@@ -2,7 +2,7 @@ const Controller = require('../controller');
 
 const ValidationError = require('../../api-errors/bad-request/validation-error');
 
-const CreateAdmin = require('../../../../contexts/admin/application/create-admin/create-admin');
+const CreateAdminUseCase = require('../../../../contexts/admin/application/create-admin/create-admin.use-case');
 const CreateAdminCommand = require('../../../../contexts/admin/application/create-admin/create-admin-command');
 
 const AdminName = require('../../../../contexts/admin/domain/admin-name');
@@ -19,7 +19,7 @@ class CreateAdminController extends Controller {
     EmailAlreadyUsed: (error) => new EmailAlreadyUsedError(error.data.emailInUse)
   };
 
-  /** @type {CreateAdmin} */
+  /** @type {CreateAdminUseCase} */
   #createAdminUseCase;
 
   constructor({ createAdminUseCase }) {

@@ -4,7 +4,7 @@ const PasswordEncryptor = require('../../domain/services/password-encryptor');
 const CheckCredentialsQuery = require('./check-credentials-query');
 const CheckCredentialsResponse = require('./check-credentials-response');
 
-class CheckCredentials {
+class CheckCredentialsUseCase {
 
   #adminRepository;
   #passwordEncryptor;
@@ -43,4 +43,4 @@ class CheckCredentials {
   }
 }
 
-module.exports = CheckCredentials;
+module.exports = CheckCredentialsUseCase;

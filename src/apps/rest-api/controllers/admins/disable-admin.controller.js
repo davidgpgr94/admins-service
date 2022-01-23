@@ -2,7 +2,7 @@ const Controller = require('../controller');
 
 const AdminNotFoundById = require('../../api-errors/not-found/admin-not-found-by-id');
 
-const DisableAdmin = require('../../../../contexts/admin/application/disable-admin/disable-admin');
+const DisableAdminUseCase = require('../../../../contexts/admin/application/disable-admin/disable-admin.use-case');
 const DisableAdminCommand = require('../../../../contexts/admin/application/disable-admin/disable-admin-command');
 
 const AdminId = require('../../../../contexts/shared/domain/admin/admin-id');
@@ -12,7 +12,7 @@ class DisableAdminController extends Controller {
     AdminNotFound: (error) => new AdminNotFoundById(error?.data?.adminId)
   };
 
-  /** @type {DisableAdmin} */
+  /** @type {DisableAdminUseCase} */
   #disableAdminUseCase;
 
   constructor({ disableAdminUseCase }) {

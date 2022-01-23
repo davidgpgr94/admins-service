@@ -7,7 +7,7 @@ const AdminSensitiveFieldsFilter = require('../../domain/services/admin-sensitiv
 const GetAdminsQuery = require('./get-admins-query');
 const GetAdminsResponse = require('./get-admins-response');
 
-class GetAdmins {
+class GetAdminsUseCase {
 
   #adminRepository;
   #adminSensitiveFieldsFilter;
@@ -48,4 +48,4 @@ class GetAdmins {
   }
 }
 
-module.exports = GetAdmins;
+module.exports = GetAdminsUseCase;

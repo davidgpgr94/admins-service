@@ -2,7 +2,7 @@ const Controller = require('../controller');
 
 const ValidationError = require('../../api-errors/bad-request/validation-error');
 
-const CheckCredentials = require('../../../../contexts/admin/application/check-credentials/check-credentials');
+const CheckCredentialsUseCase = require('../../../../contexts/admin/application/check-credentials/check-credentials.use-case');
 const CheckCredentialsQuery = require('../../../../contexts/admin/application/check-credentials/check-credentials-query');
 
 const AdminEmail = require('../../../../contexts/admin/domain/admin-email');
@@ -14,7 +14,7 @@ class CheckCredentialsController extends Controller {
     InvalidArgumentError: (error) => new ValidationError(undefined, error.message)
   };
 
-  /** @type {CheckCredentials} */
+  /** @type {CheckCredentialsUseCase} */
   #checkCredentialsUseCase;
 
   constructor({ checkCredentialsUseCase }) {

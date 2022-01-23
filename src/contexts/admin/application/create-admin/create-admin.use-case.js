@@ -12,7 +12,7 @@ const PasswordEncryptor = require('../../domain/services/password-encryptor');
 const CreateAdminCommand = require('./create-admin-command');
 const CreateAdminResponse = require('./create-admin-response');
 
-class CreateAdmin {
+class CreateAdminUseCase {
 
   #adminRepository;
   #passwordEncryptor;
@@ -93,4 +93,4 @@ class CreateAdmin {
   }
 }
 
-module.exports = CreateAdmin;
+module.exports = CreateAdminUseCase;

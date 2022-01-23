@@ -5,7 +5,7 @@ const AdminRepository = require('../../domain/services/admin-repository');
 const EnableAdminCommand = require('./enable-admin-command');
 const EnableAdminResponse = require('./enable-admin-response');
 
-class EnableAdmin {
+class EnableAdminUseCase {
 
   #adminRepository;
 
@@ -39,4 +39,4 @@ class EnableAdmin {
   }
 }
 
-module.exports = EnableAdmin;
+module.exports = EnableAdminUseCase;

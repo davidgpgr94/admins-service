@@ -13,7 +13,7 @@ const AdminNotFound = require('../../domain/errors/admin-not-found');
 const RestorePasswordCommand = require('./restore-password-command');
 const RestorePasswordResponse = require('./restore-password-response');
 
-class RestorePassword {
+class RestorePasswordUseCase {
 
   #adminRepository;
   #passwordEncryptor;
@@ -90,4 +90,4 @@ class RestorePassword {
   }
 }
 
-module.exports = RestorePassword;
+module.exports = RestorePasswordUseCase;

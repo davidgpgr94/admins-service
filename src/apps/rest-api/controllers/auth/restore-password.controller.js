@@ -1,10 +1,12 @@
 const Controller = require('../controller');
 
-const RestorePassword = require('../../../../contexts/admin/application/restore-password/restore-password');
+const InvalidRestorePasswordToken = require('../../api-errors/bad-request/invalid-restore-password-token');
+
+const RestorePasswordUseCase = require('../../../../contexts/admin/application/restore-password/restore-password.use-case');
 const RestorePasswordCommand = require('../../../../contexts/admin/application/restore-password/restore-password-command');
+
 const NotEmptyStringValueObject = require('../../../../contexts/shared/domain/value-objects/not-empty-string-value-object');
 const AdminPassword = require('../../../../contexts/admin/domain/admin-password');
-const InvalidRestorePasswordToken = require('../../api-errors/bad-request/invalid-restore-password-token');
 
 class RestorePasswordController extends Controller {
   static #errorHandlers = {
@@ -12,7 +14,7 @@ class RestorePasswordController extends Controller {
     AdminNotFound: (_) => new InvalidRestorePasswordToken()
   };
 
-  /** @type {RestorePassword} */
+  /** @type {RestorePasswordUseCase} */
   #restorePasswordUseCase;
 
   constructor({ restorePasswordUseCase }) {
