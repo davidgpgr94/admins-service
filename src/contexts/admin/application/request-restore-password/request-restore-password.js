@@ -18,7 +18,7 @@ class RequestRestorePassword {
    * @param {AdminRepository} deps.adminRepository
    * @param {TokenEncryptor} deps.tokenEncryptor
    */
-  constructor({ adminRepository, restorePasswordTokenFactory, tokenEncryptor }) {
+  constructor({ adminRepository, tokenEncryptor }) {
     this.#adminRepository = adminRepository;
     this.#tokenEncryptor = tokenEncryptor;
   }
